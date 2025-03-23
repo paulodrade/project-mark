@@ -1,0 +1,17 @@
+<mat-accordion>
+
+  @for (location of locations; track location) {
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{location.name}} </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-list role="list">
+        <mat-list-item [routerLink]="['/home', location.id, 'today']" role="listitem">Today</mat-list-item>
+        <mat-list-item [routerLink]="['/home', location.id, 'forecast']" role="listitem">Forecast</mat-list-item>
+      </mat-list>
+
+    </mat-expansion-panel>
+  }
+
+</mat-accordion>

@@ -1,0 +1,35 @@
+<mat-card class="card">
+    <mat-card-content class="card__content">
+
+        <mat-drawer-container class="container">
+            <mat-drawer #drawer class="container__menu" mode="push" position="end">
+              <pm-location-list></pm-location-list>
+            </mat-drawer>
+            <mat-drawer-content>
+
+              <nav class="toolbar" mat-tab-nav-bar [tabPanel]="tabPanel">
+
+                <a mat-tab-link [active]="activeTab === ''" routerLink="">Today</a>
+                <a mat-tab-link [active]="activeTab === 'forecast'" routerLink="forecast">Forecast</a>
+
+                <div mat-tab-link disabled class="toolbar__spacer"></div>
+
+                @if (isDesktop) {
+                  <div mat-tab-link disabled class="toolbar__spacer"></div>
+                }
+
+                <a mat-tab-link (click)="drawer.toggle()" class="toolbar__menu-toggle">
+                  <pm-icon icon="globe_location_pin"></pm-icon>
+                </a>
+
+              </nav>
+
+              <mat-tab-nav-panel #tabPanel class="container__content">
+                <router-outlet/>
+              </mat-tab-nav-panel>
+
+            </mat-drawer-content>
+          </mat-drawer-container>
+
+    </mat-card-content>
+</mat-card>

@@ -16,8 +16,38 @@
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022"
+    "module": "ES2022",
+    "types": ["node", "jest"],
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
+    "paths": {
+      "@mp-environments/*": [
+        "./src/environments/*"
+      ],
+      "@mp-components": [
+        "./src/app/components/index.ts"
+      ],
+      "@mp-features": [
+        "./src/app/features/index.ts"
+      ],
+      "@mp-helpers": [
+        "./src/app/helpers/index.ts"
+      ],
+      "@mp-api/models": [
+        "./src/app/api/models/index.ts"
+      ],
+      "@mp-api/services": [
+        "./src/app/api/services/index.ts"
+      ]
+    }
   },
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

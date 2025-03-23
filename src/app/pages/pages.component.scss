@@ -1,0 +1,47 @@
+@use '@angular/material' as mat;
+
+:host, .card, .container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &, &__content {
+    flex-grow: 1;
+  }
+}
+
+.card {
+  &__content {
+    padding: 0 !important; // material design does not offers a way to change this property other ways
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.container {
+
+  &__menu {
+    width: 300px;
+    max-width: 70%;
+
+    --mat-sidenav-container-shape: 0;
+  }
+
+  &__content {
+    padding: 15px;
+    display: block;
+  }
+}
+
+.toolbar {
+
+  @include mat.tabs-overrides((
+          active-indicator-color: #000,
+          active-label-text-color: #000,
+          divider-color: #CCC,
+  ));
+
+  &__menu-toggle {
+    max-width: 72px;
+  }
+}
