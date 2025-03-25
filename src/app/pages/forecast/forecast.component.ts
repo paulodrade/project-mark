@@ -22,16 +22,16 @@ import {
 import { RouterHelper } from '@pm-helpers';
 
 @Component({
-  selector: 'pm-forecast', 
-  standalone: true, 
+  selector: 'pm-forecast',
+  standalone: true,
   imports: [
-    CommonModule, 
-    MatProgressSpinner, 
-    WeatherCardComponent, 
-    WeatherForecastComponent 
+    CommonModule,
+    MatProgressSpinner,
+    WeatherCardComponent,
+    WeatherForecastComponent
   ],
-  templateUrl: './forecast.component.html', 
-  styleUrl: './forecast.component.scss' 
+  templateUrl: './forecast.component.html',
+  styleUrl: './forecast.component.scss'
 })
 export class ForecastComponent implements OnInit, OnDestroy {
   
@@ -44,9 +44,9 @@ export class ForecastComponent implements OnInit, OnDestroy {
   onRouteChangeSubscription$; // Subscription to listen for route changes
   
   constructor(
-    private locationsService: LocationsService, 
-    private routerHelper: RouterHelper, 
-    private weatherService: WeatherService, 
+    private locationsService: LocationsService,
+    private routerHelper: RouterHelper,
+    private weatherService: WeatherService,
   ) {
     // Subscribes to route changes and fetches weather data when the location changes
     this.onRouteChangeSubscription$ = this.routerHelper.onRouteChange().subscribe(({ params }) => {
@@ -88,6 +88,5 @@ export class ForecastComponent implements OnInit, OnDestroy {
     this.weatherService.getForecastWeather(this.currentLocation.coordinates).subscribe(forecast => {
       this.forecastWeather = forecast; // Updates the `forecastWeather` property with the fetched data
     });
-
   }
 }

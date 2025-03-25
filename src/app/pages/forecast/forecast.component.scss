@@ -31,6 +31,15 @@
 }
 
 // BLOCK
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: 1;
+  min-height: 150px;
+}
+
+// BLOCK
 .forecast {
   padding: 15px;
 }
