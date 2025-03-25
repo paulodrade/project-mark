@@ -1,0 +1,46 @@
+<!-- TODAY WEATHER -->
+<div
+  class="container container--dark-bg"
+  [class.container--loading]="!forecastWeather.length"
+>
+  @if (forecastWeather.length) {
+
+  <!-- WEATHER CARD -->
+  <pm-weather-card
+    class="container__card"
+    [location]="currentLocation"
+    [weather]="todayWeather"
+  ></pm-weather-card>
+
+  } @else {
+
+  <!-- LOADING -->
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  }
+</div>
+
+<!-- FORECAST WEATHER -->
+<div
+  class="forecast container container--scrollable"
+  [class.container--loading]="!forecastWeather.length"
+>
+  @if (forecastWeather.length) {
+
+  <!-- FORECAST CARD -->
+  <pm-weather-forecast
+    [forecast]="forecastWeather"
+    [hideToday]="true"
+  ></pm-weather-forecast>
+
+  } @else {
+
+  <!-- LOADING -->
+  <div class="loading">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+
+  }
+</div>

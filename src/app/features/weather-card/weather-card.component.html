@@ -1,0 +1,50 @@
+@if (weather) {
+<mat-card class="weather-card">
+  <mat-card-content
+    class="weather-card__content"
+    [style.background-image]="'url(' + location.image + ')'"
+  >
+    <mat-grid-list cols="5" rowHeight="5:5">
+      <!-- WEATHER NAME -->
+      <mat-grid-tile [colspan]="5">
+        <h2>{{ location.name }}</h2>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="3" class="weather-card--shadow">
+        <!-- WEATHER ICON -->
+        <pm-icon
+          class="weather-card__icon"
+          [icon]="weather.weather.icon"
+          [size]="75"
+        ></pm-icon>
+
+        <!-- WEATHER GENERAL TEMPERATURE -->
+        <h1
+          class="weather-card__temp"
+          [class.weather-card__temp--cold]="weather.main.temp <= 5"
+          [class.weather-card__temp--middle]="
+            weather.main.temp > 5 && weather.main.temp <= 25
+          "
+          [class.weather-card__temp--hot]="weather.main.temp > 25"
+        >
+          {{ weather.main.temp | number : "1.0-0" }} <small>&#176;C</small>
+        </h1>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="2" class="weather-card--shadow">
+        <div class="weather-card__extra">
+          <!-- WEATHER HUMIDITY -->
+          <p>
+            Humidity: <strong>{{ weather.main.humidity }}%</strong>
+          </p>
+
+          <!-- WEATHER PRESURE -->
+          <p>
+            Pressure: <strong>{{ weather.main.pressure }}</strong>
+          </p>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
+}

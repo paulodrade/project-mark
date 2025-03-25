@@ -1,0 +1,58 @@
+
+:host {
+  display: block;
+}
+
+// BLOCK
+.weather-card {
+  color: #FFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  // ELEMENTS
+  &__content {
+    padding: 0;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__temp {
+    display: flex;
+    margin: 0 0 0 10px;
+    align-items: start;
+    font-size: 40px;
+
+    small {
+      font-size: 24px;
+      margin-left: 5px;
+    }
+
+    &--cold {
+      color: var(--temp-color-cold, #007ec9);
+    }
+
+    &--middle {
+      color: var(--temp-color-middle, #ffb100);
+    }
+
+    &--hot {
+      color: var(--temp-color-hot, #ff4000);
+    }
+  }
+
+  &__extra {
+    font-size: 16px;
+  }
+
+
+  // MODIFIERS
+  &--shadow {
+    background: linear-gradient(0deg, rgba(#000, 0.7) 20%, rgba(#000, 0) 100%);
+  }
+}
+
+// BLOCK
+.forecast {
+  padding: 15px;
+}

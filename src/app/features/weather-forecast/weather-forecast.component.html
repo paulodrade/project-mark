@@ -1,0 +1,55 @@
+<mat-list class="forecast">
+  <!-- FORECAST DAY -->
+  @for (day of listWeatherByDay; track day) {
+  <mat-list-item class="forecast__item">
+    <!-- DAY OF THE WEEK -->
+    <div matListItemLine class="forecast__title">
+      <strong>{{ day.timestamp | date : "EEEE" }}</strong>
+      <span>{{ day.timestamp | date : "dd/MMM" }}</span>
+    </div>
+
+    <div matListItemLine class="forecast__content">
+      <!-- FORECAST HOUR -->
+      @for (weather of day.list; track weather) {
+      <div class="forecast__info info-card">
+        <!-- TIME -->
+        <div class="info-card__date">
+          {{ weather.timestamp | date : "h a" }}
+        </div>
+
+        <!-- ICON -->
+        <pm-icon
+          class="info-card__icon"
+          [icon]="weather.weather.icon"
+          [size]="35"
+        ></pm-icon>
+
+        <div class="info-card__temp">
+          <!-- MIN TEMP -->
+          <strong
+            [class.info-card__temp--cold]="weather.main.temp_min <= 5"
+            [class.info-card__temp--middle]="
+              weather.main.temp_min > 5 && weather.main.temp_min <= 25
+            "
+            [class.info-card__temp--hot]="weather.main.temp_min > 25"
+          >
+            {{ weather.main.temp_min | number : "1.0-0" }}&#176;
+          </strong>
+
+          <!-- MAX TEMP -->
+          <span
+            [class.info-card__temp--cold]="weather.main.temp_max <= 5"
+            [class.info-card__temp--middle]="
+              weather.main.temp_max > 5 && weather.main.temp_max <= 25
+            "
+            [class.info-card__temp--hot]="weather.main.temp_max > 25"
+          >
+            {{ weather.main.temp_max | number : "1.0-0" }}&#176;
+          </span>
+        </div>
+      </div>
+      }
+    </div>
+  </mat-list-item>
+  }
+</mat-list>

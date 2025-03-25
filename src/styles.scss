@@ -1,0 +1,50 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$my-primary: mat.define-palette(mat.$indigo-palette, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$my-theme: mat.define-light-theme((
+        color: (
+                primary: $my-primary,
+                accent: $my-accent,
+        ),
+        typography: mat.define-typography-config(),
+        density: 0,
+));
+
+@include mat.all-component-themes($my-theme);
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: #333;
+
+  --temp-color-cold: #007ec9;
+  --temp-color-middle: #ffb100;
+  --temp-color-hot: #ff4000;
+
+}
+
+.mat-mdc-dialog-surface {
+  --mat-sys-corner-extra-large: 8px;
+}
+
+p {
+  margin: 0;
+
+  & + p {
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+}
+
+

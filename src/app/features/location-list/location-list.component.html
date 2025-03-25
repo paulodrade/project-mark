@@ -1,0 +1,11 @@
+<mat-nav-list class="location-list">
+  @for (location of locations; track location) {
+  <a
+    mat-list-item
+    routerLinkActive="location-list--active"
+    [routerLink]="['/forecast', location.id]"
+  >
+    {{ location.name }}
+  </a>
+  }
+</mat-nav-list>

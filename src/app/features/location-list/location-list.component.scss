@@ -1,0 +1,12 @@
+
+  // BLOCK
+.location-list {
+
+  // MODIFIERS
+  &--active {
+    font-weight: bold;
+    background: #EEE;
+
+    --mdc-list-list-item-label-text-color: #008494;
+  }
+}

@@ -1,0 +1,32 @@
+<mat-card class="card">
+  <mat-card-content class="card__content">
+    <mat-drawer-container class="container" hasBackdrop>
+      <!-- PAGE-SIDE-MENU -->
+      <mat-drawer #drawer class="container__menu" mode="push" position="end">
+        <!-- LOCATION LIST -->
+        <pm-location-list></pm-location-list>
+      </mat-drawer>
+
+      <!-- PAGE-CONTAINER -->
+      <mat-drawer-content class="container__content">
+        <!-- TOOLBAR -->
+        <nav class="toolbar" mat-tab-nav-bar [tabPanel]="tabPanel">
+          <span class="toolbar__spacer"></span>
+
+          <a
+            mat-tab-link
+            (click)="drawer.toggle()"
+            class="toolbar__menu-toggle"
+          >
+            <pm-icon icon="menu_open"></pm-icon>
+          </a>
+        </nav>
+
+        <!-- PAGE CONTENT CONTAINER -->
+        <mat-tab-nav-panel #tabPanel class="container__panel">
+          <router-outlet></router-outlet>
+        </mat-tab-nav-panel>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </mat-card-content>
+</mat-card>
