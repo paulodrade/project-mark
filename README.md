@@ -10,7 +10,7 @@
 
 ### Install Node Dependencies
 
-``` npm install ```
+Run ``` npm install ``` at the root of the project
 
 ---
 # Start Serve
